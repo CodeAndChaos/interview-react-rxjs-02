@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { tweets } from './data/datasource';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const initDataStore = tweets;
 
 ReactDOM.render(
   <React.StrictMode>
