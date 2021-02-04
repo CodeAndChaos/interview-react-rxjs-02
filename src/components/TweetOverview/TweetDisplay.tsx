@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import styled from "styled-components";
+import { i18n } from "../../config/i18n";
 import { StateTweet } from "../../data/datasource";
 import { twitterStore } from "../../data/state";
 
@@ -27,13 +28,13 @@ export const Tweet: React.FC<{ tweet: StateTweet }> = ({ tweet }) => {
   if (favorite) {
     controls = (
       <Button onClick={() => twitterStore.setFavorite(id, false)}>
-        UnFavorite
+        {i18n.UnFavorite}
       </Button>
     );
   } else {
     controls = (
       <Button onClick={() => twitterStore.setFavorite(id, true)}>
-        Favorite
+        {i18n.Favorite}
       </Button>
     );
   }

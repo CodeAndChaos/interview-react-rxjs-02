@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import styled from "styled-components";
 import { TweetOverview } from "../components/TweetOverview";
+import { i18n } from "../config/i18n";
 import { twitterStore } from "../data/state";
 
 const MainBody = styled.div`
@@ -16,7 +17,7 @@ export const Main: React.FC = () => {
             <TweetOverview />
           </Col>
           <Col>
-            <Button variant="danger" onClick={() => twitterStore.clear()}>Clear</Button>
+            <Button variant="danger" onClick={() => twitterStore.clear()}>{i18n.Clear}</Button>
           </Col>
         </Row>
       </Container>
