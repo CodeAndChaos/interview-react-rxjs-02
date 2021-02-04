@@ -23,16 +23,27 @@ const TweetContent = styled.div`
 
 export const Tweet: React.FC<{ tweet: StateTweet }> = ({ tweet }) => {
   const { id, favorite, account, content } = tweet;
+  const [, updateState] = React.useState<{}>({});
   let controls;
   if (favorite) {
     controls = (
-      <Button onClick={() => twitterStore.setFavorite(id, false)}>
+      <Button
+        onClick={() => {
+          twitterStore.setFavorite(id, false);
+          updateState({});
+        }}
+      >
         UnFavorite
       </Button>
     );
   } else {
     controls = (
-      <Button onClick={() => twitterStore.setFavorite(id, true)}>
+      <Button
+        onClick={() => {
+          twitterStore.setFavorite(id, true);
+          updateState({});
+        }}
+      >
         Favorite
       </Button>
     );
