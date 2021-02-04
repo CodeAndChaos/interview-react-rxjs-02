@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { initialState, twitterStore } from "../../data/state";
 import { TweetDisplayFilters } from "../TweetOverview";
@@ -7,17 +7,26 @@ import { Tweet } from "./TweetDisplay";
 const FavCount = styled.div`
   display: flex;
   margin-top: 1rem;
+`;
 
-`
+const useTwitterList = () => {
+  const [items, setItems] = useState(initialState);
+
+  useEffect(() => {
+    const subscription = twitterStore.subscribe(setItems);
+
+    return () => {
+      subscription.unsubscribe()
+    }
+  }, []);
+
+  return items;
+};
 
 export const DisplayTweets: React.FC<{
   filter: TweetDisplayFilters;
 }> = ({ filter }) => {
-  const [items, setItems] = useState(initialState);
-
-  useLayoutEffect(() => {
-    twitterStore.subscribe(setItems);
-  }, []);
+  const items = useTwitterList();
 
   const filterMap = {
     Recent: () => items.tweets,
