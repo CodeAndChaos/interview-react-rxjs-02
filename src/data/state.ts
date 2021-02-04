@@ -41,7 +41,7 @@ export const twitterStore = {
         if (tweet) {
             tweet.favorite = value;
         }
-        subject.next(state)
+        subject.next({ ...state })
     },
     clear: () => {
         idCounter = 0;
