@@ -20,7 +20,6 @@ let idCounter = 0;
 export const twitterStore = {
     subscribe: (setState: any) => subject.subscribe(setState),
     addTweet: (tweet: Tweet) => {
-        console.log("add observer", tweet.timestamp)
         idCounter += 1;
 
         const stateTweet: StateTweet = {
