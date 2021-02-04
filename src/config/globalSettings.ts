@@ -1,1 +1,1 @@
-export const TIME_TO_ARCHIVE = 2000; // 30 seconds
+export const TIME_TO_ARCHIVE = 30000; // 30 seconds
