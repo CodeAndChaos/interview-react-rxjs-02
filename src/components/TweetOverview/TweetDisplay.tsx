@@ -11,7 +11,7 @@ const TweetMain = styled.div<{ favorite: boolean }>`
   justify-content: space-between;
   ${({ favorite }) => (favorite ? "border: 0.25rem solid red;" : "")}
 `;
-const TweetAutor = styled.div`
+const TweetAuthor = styled.div`
   font-style: italic;
   color: #ccc;
   margin-right: 0.5rem;
@@ -39,7 +39,7 @@ export const Tweet: React.FC<{ tweet: StateTweet }> = ({ tweet }) => {
   return (
     <TweetMain favorite={tweet.favorite}>
       <TweetContent>
-        <TweetAutor>@{tweet.account}</TweetAutor>
+        <TweetAuthor>@{tweet.account}</TweetAuthor>
         {tweet.content}
       </TweetContent>
       <div>{controls}</div>
