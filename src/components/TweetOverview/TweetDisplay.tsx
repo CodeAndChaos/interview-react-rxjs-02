@@ -17,30 +17,31 @@ const TweetAuthor = styled.div`
   margin-right: 0.5rem;
 `;
 const TweetContent = styled.div`
-    display: flex;
+  display: flex;
   align-items: center;
 `;
 
 export const Tweet: React.FC<{ tweet: StateTweet }> = ({ tweet }) => {
+  const { id, favorite, account, content } = tweet;
   let controls;
-  if (tweet.favorite) {
+  if (favorite) {
     controls = (
-      <Button onClick={() => twitterStore.setFavorite(tweet.id, false)}>
+      <Button onClick={() => twitterStore.setFavorite(id, false)}>
         UnFavorite
       </Button>
     );
   } else {
     controls = (
-      <Button onClick={() => twitterStore.setFavorite(tweet.id, true)}>
+      <Button onClick={() => twitterStore.setFavorite(id, true)}>
         Favorite
       </Button>
     );
   }
   return (
-    <TweetMain favorite={tweet.favorite}>
+    <TweetMain favorite={favorite}>
       <TweetContent>
-        <TweetAuthor>@{tweet.account}</TweetAuthor>
-        {tweet.content}
+        <TweetAuthor>@{account}</TweetAuthor>
+        {content}
       </TweetContent>
       <div>{controls}</div>
     </TweetMain>

@@ -37,7 +37,7 @@ export const twitterStore = {
         setTimeout(() => { twitterStore.archiveTweet(tweet.timestamp) }, TIME_TO_ARCHIVE)
     },
     setFavorite: (id: number, value: boolean) => {
-        let tweet = state.tweets.find(val => val.id === id) || state.tweets.find(val => val.id === id)
+        let tweet = state.tweets.find(val => val.id === id) || state.archive.find(val => val.id === id)
         if (tweet) {
             tweet.favorite = value;
         }
